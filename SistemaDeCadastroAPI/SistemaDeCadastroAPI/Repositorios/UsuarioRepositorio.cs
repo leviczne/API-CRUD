@@ -8,6 +8,8 @@ namespace SistemaDeCadastroAPI.Repositorios
     public class UsuarioRepositorio : IUsuarioRepositorio
     {
         private readonly SistemaCadastroDBContex _dbContext;
+
+
         public UsuarioRepositorio(SistemaCadastroDBContex sistemaCadastroDBContex)
         {
             _dbContext = sistemaCadastroDBContex;
