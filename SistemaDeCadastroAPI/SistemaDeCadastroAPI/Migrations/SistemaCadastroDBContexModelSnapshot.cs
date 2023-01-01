@@ -40,6 +40,7 @@ namespace SistemaDeCadastroAPI.Migrations
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Senha")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

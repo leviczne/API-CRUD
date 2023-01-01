@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SistemaDeCadastroAPI.Models;
+using SistemaDeCadastroAPI.Models.DTO_s;
 using SistemaDeCadastroAPI.Repositorios.Intefaces;
 
 namespace SistemaDeCadastroAPI.Controllers
@@ -19,9 +20,9 @@ namespace SistemaDeCadastroAPI.Controllers
         }
   
         [HttpGet]
-        public async Task<ActionResult<List<UsuarioModel>>> BuscasTodosUsuarios()
+        public async Task<ActionResult<List<UsuarioDTO>>> BuscasTodosUsuarios()
         {
-          List<UsuarioModel> usuarios=  await _usuarioRepositorio.BuscarTodosUsuarios();
+          List<UsuarioDTO> usuarios=  await _usuarioRepositorio.BuscarTodosUsuarios();
             return Ok(usuarios);
         }
 

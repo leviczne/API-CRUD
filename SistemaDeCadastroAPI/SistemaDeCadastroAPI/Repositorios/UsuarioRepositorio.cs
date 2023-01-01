@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SistemaDeCadastroAPI.Data;
 using SistemaDeCadastroAPI.Models;
+using SistemaDeCadastroAPI.Models.DTO_s;
 using SistemaDeCadastroAPI.Repositorios.Intefaces;
 
 namespace SistemaDeCadastroAPI.Repositorios
@@ -20,9 +21,9 @@ namespace SistemaDeCadastroAPI.Repositorios
             return await _dbContext.Usuarios.FirstOrDefaultAsync(x=> x.Id==id);
         }
 
-        public async Task<List<UsuarioModel>> BuscarTodosUsuarios()
+        public async Task<List<UsuarioDTO>> BuscarTodosUsuarios()
         {
-            return await _dbContext.Usuarios.ToListAsync();
+            return await _dbContext.Usuarios.Select(x=> new UsuarioDTO {Name=x.Name, Email = x.Email}).ToListAsync();
         }
          public async Task<UsuarioModel> Adicionar(UsuarioModel usuario)
         {
